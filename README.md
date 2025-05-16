@@ -30,10 +30,12 @@ A role-based backend system built using **Express.js + MongoDB**, supporting job
 ```
 /src
 |__ config/         # DB connection
+|__ constants/      # All enums/constants used across the app
 |__ controllers/    # Route logic handlers
 |__ models/         # Mongoose schemas
 |__ routes/         # Route files
 |__ middlewares/    # Auth, role, file upload
+|__ validator/      # Input validation
 uploads/            # Uploaded CVs
 server.js           # Entry point
 .env                # Env config
@@ -98,6 +100,22 @@ We use [Zod](https://github.com/colinhacks/zod) for runtime input validation on 
 - Job application by seekers
 
 This ensures data correctness and helpful error messages for invalid inputs.
+
+---
+
+### 🔧 Constants & Enums
+
+To improve code readability, maintainability, and avoid hardcoded values, all user roles and application statuses are managed via centralized constants:
+
+- `ROLES` — defines valid user roles: `admin`, `employee`, `seeker`
+- `APPLICATION_STATUS` — tracks job application status: `pending`, `accepted`, `rejected`
+- `PAYMENT_STATUS` — tracks payment state: `paid`, `pending`
+
+These constants are defined in `src/constants/index.js` and used across:
+- Mongoose schema enums
+- Role-based access middleware
+- Controllers (status assignments and checks)
+- Zod input validation schemas
 
 ---
 
