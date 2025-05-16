@@ -18,11 +18,21 @@ connectDB();
 const authRoutes = require('./src/routes/authRoutes');
 const testRoutes = require('./src/routes/testRoutes');
 const jobRoutes = require('./src/routes/jobRoutes');
+const applicationRoutes = require('./src/routes/applicationRoutes');
+const adminRoutes = require('./src/routes/adminRoutes');
+const recruiterRoutes = require('./src/routes/recruiterRoutes');
+const seekerRoutes = require('./src/routes/seekerRoutes');
 
 // Api Endpoints
 app.use('/api/auth', authRoutes);
 app.use('/api/test', testRoutes);
 app.use('/api/jobs', jobRoutes);
+app.use('/api/applications', applicationRoutes);
+app.use('/uploads', express.static('uploads'));
+app.use('/api/admin', adminRoutes);
+app.use('/api/recruiter', recruiterRoutes);
+app.use('/api/seeker', seekerRoutes);
+
 
 
 // Test route
