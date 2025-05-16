@@ -89,6 +89,18 @@ npm run dev
 
 ---
 
+### Input Validation
+
+We use [Zod](https://github.com/colinhacks/zod) for runtime input validation on all key endpoints including:
+
+- User registration and login  
+- Job creation by employees  
+- Job application by seekers
+
+This ensures data correctness and helpful error messages for invalid inputs.
+
+---
+
 ## 📤 File Upload
 
 * Only `.pdf` and `.docx` allowed
