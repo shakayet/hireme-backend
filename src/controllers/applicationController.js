@@ -3,9 +3,7 @@ const Invoice = require('../models/Invoice');
 const { applyToJobSchema } = require('../validators/applicationSchema');
 const { ROLES, APPLICATION_STATUS, PAYMENT_STATUS } = require('../constants');
 
-// @desc    Apply to a job (Seeker only)
-// @route   POST /api/applications/apply
-// @access  Private (seeker)
+
 const applyToJob = async (req, res) => {
   try {
     // Validate input with Zod
@@ -30,9 +28,8 @@ const applyToJob = async (req, res) => {
       job: jobId,
       user: req.user.id,
       cvUrl: filePath,
-      paymentStatus: PAYMENT_STATUS.PAID // replaced hardcoded 'paid'
-      // You can add status here too if needed, e.g.,
-      // status: APPLICATION_STATUS.PENDING
+      paymentStatus: PAYMENT_STATUS.PAID 
+      
     });
 
     // Save invoice

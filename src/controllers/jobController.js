@@ -1,7 +1,7 @@
 const Job = require('../models/Job');
 const { createJobSchema } = require('../validators/jobSchema');
 
-// @desc Create job
+//  Create job
 const createJob = async (req, res) => {
   try {
     createJobSchema.parse(req.body);
@@ -25,7 +25,7 @@ const createJob = async (req, res) => {
   }
 };
 
-// @desc Get all jobs
+//  Get all jobs
 const getAllJobs = async (req, res) => {
   try {
     const jobs = await Job.find().populate('postedBy', 'name email');
