@@ -1,419 +1,326 @@
 {
-	"info": {
-		"_postman_id": "48910038-e77a-4dca-b801-0ff080090e77",
-		"name": "HireMe API",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "44835993"
-	},
-	"item": [
-		{
-			"name": "Job Seeker Register",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Seeker Bro\",\r\n  \"email\": \"seekerr@example.com\",\r\n  \"password\": \"123456\",\r\n  \"role\": \"seeker\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:5000/api/auth/register",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"auth",
-						"register"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Job Seeker Login",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"email\": \"seekerr@example.com\",\r\n  \"password\": \"123456\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:5000/api/auth/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"auth",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create Job",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer <your-token-here>",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"title\": \"Backend Developer\",\r\n  \"company\": \"GizanTech\",\r\n  \"description\": \"Build scalable APIs\",\r\n  \"location\": \"Dhaka\",\r\n  \"salary\": 60000\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:5000/api/jobs",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"jobs"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get All Job",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/api/jobs",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"jobs"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Apply to Job",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer <your-token-here>",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "jobId",
-							"value": "6827057c52674a54feb2f916",
-							"type": "text"
-						},
-						{
-							"key": "cv",
-							"type": "file",
-							"src": "/C:/Users/SRABON/Downloads/Shakayet Hossain main resume.pdf"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:5000/api/applications/apply",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"applications",
-						"apply"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "My Application",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer <your-token-here>",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:5000/api/seeker/applications",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"seeker",
-						"applications"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get All Users",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer <your-token-here>",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:5000/api/admin/jobs",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"admin",
-						"jobs"
-					],
-					"query": [
-						{
-							"key": "",
-							"value": "",
-							"disabled": true
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get All Applications",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer <your-token-here>",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:5000/api/admin/applications",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"admin",
-						"applications"
-					],
-					"query": [
-						{
-							"key": "",
-							"value": "",
-							"disabled": true
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update Application Status",
-			"request": {
-				"method": "PATCH",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer <your-token-here>",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"status\": \"rejected\"\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:5000/api/recruiter/applications/682706ff52674a54feb2f91c",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"recruiter",
-						"applications",
-						"682706ff52674a54feb2f91c"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Admin Register",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Admin Bro\",\r\n  \"email\": \"adminn@example.com\",\r\n  \"password\": \"123456\",\r\n  \"role\": \"admin\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:5000/api/auth/register",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"auth",
-						"register"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Admin Login",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"email\": \"adminn@example.com\",\r\n  \"password\": \"123456\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:5000/api/auth/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"auth",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Employee Register",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Employee Bro\",\r\n  \"email\": \"employeeee@example.com\",\r\n  \"password\": \"123456\",\r\n  \"role\": \"employee\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:5000/api/auth/register",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"auth",
-						"register"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Employee Login",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"email\": \"employee@example.com\",\r\n  \"password\": \"123456\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:5000/api/auth/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"auth",
-						"login"
-					]
-				}
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "48910038-e77a-4dca-b801-0ff080090e77",
+    "name": "HireMe API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "44835993",
+    "description": "📘 HireMe API Collection\n\nUse environment variables:\n- {{base_url}} (e.g., http://localhost:5000)\n- {{token}} for Authorization header"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000"
+    },
+    {
+      "key": "token",
+      "value": "<your-jwt-token-here>"
+    }
+  ],
+  "item": [
+    {
+      "name": "Job Seeker Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Seeker Bro\",\n  \"email\": \"seekerr@example.com\",\n  \"password\": \"123456\",\n  \"role\": \"seeker\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/register",
+          "host": ["{{base_url}}"],
+          "path": ["api", "auth", "register"]
+        },
+        "description": "Register a new job seeker.\n\nBody JSON:\n- name (string, required)\n- email (string, required)\n- password (string, min 6 chars)\n- role: seeker"
+      },
+      "response": []
+    },
+    {
+      "name": "Job Seeker Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"seekerr@example.com\",\n  \"password\": \"123456\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/login",
+          "host": ["{{base_url}}"],
+          "path": ["api", "auth", "login"]
+        },
+        "description": "Login as job seeker. Returns JWT token and user info."
+      },
+      "response": []
+    },
+    {
+      "name": "Create Job",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Backend Developer\",\n  \"company\": \"GizanTech\",\n  \"description\": \"Build scalable APIs\",\n  \"location\": \"Dhaka\",\n  \"salary\": 60000\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/jobs",
+          "host": ["{{base_url}}"],
+          "path": ["api", "jobs"]
+        },
+        "description": "Create a new job post (Employee only).\n\nRequires Authorization header with valid employee JWT."
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Job",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/jobs",
+          "host": ["{{base_url}}"],
+          "path": ["api", "jobs"]
+        },
+        "description": "Get all job postings (public endpoint)."
+      },
+      "response": []
+    },
+    {
+      "name": "Apply to Job",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "jobId",
+              "value": "6827057c52674a54feb2f916",
+              "type": "text"
+            },
+            {
+              "key": "cv",
+              "type": "file",
+              "src": ""
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{base_url}}/api/applications/apply",
+          "host": ["{{base_url}}"],
+          "path": ["api", "applications", "apply"]
+        },
+        "description": "Apply to a job (Seeker only).\n\nForm-data:\n- jobId (string)\n- cv (file upload, PDF/DOCX)"
+      },
+      "response": []
+    },
+    {
+      "name": "My Application",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/seeker/applications",
+          "host": ["{{base_url}}"],
+          "path": ["api", "seeker", "applications"]
+        },
+        "description": "Get logged-in seeker's application history.\n\nRequires Authorization header."
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Users",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/admin/jobs",
+          "host": ["{{base_url}}"],
+          "path": ["api", "admin", "jobs"]
+        },
+        "description": "Get all jobs (Admin only).\n\nRequires Authorization header with admin JWT."
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Applications",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/admin/applications",
+          "host": ["{{base_url}}"],
+          "path": ["api", "admin", "applications"]
+        },
+        "description": "Get all applications (Admin only).\n\nRequires Authorization header with admin JWT."
+      },
+      "response": []
+    },
+    {
+      "name": "Update Application Status",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"rejected\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/recruiter/applications/682706ff52674a54feb2f91c",
+          "host": ["{{base_url}}"],
+          "path": ["api", "recruiter", "applications", "682706ff52674a54feb2f91c"]
+        },
+        "description": "Update application status (Recruiter only).\n\nBody JSON:\n- status (string) one of 'pending', 'accepted', 'rejected'\n\nRequires Authorization header."
+      },
+      "response": []
+    },
+    {
+      "name": "Admin Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Admin Bro\",\n  \"email\": \"admin@example.com\",\n  \"password\": \"123456\",\n  \"role\": \"admin\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/register",
+          "host": ["{{base_url}}"],
+          "path": ["api", "auth", "register"]
+        },
+        "description": "Register a new admin user.\n\nBody JSON:\n- name\n- email\n- password\n- role: admin"
+      },
+      "response": []
+    },
+    {
+      "name": "Admin Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"123456\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/login",
+          "host": ["{{base_url}}"],
+          "path": ["api", "auth", "login"]
+        },
+        "description": "Login as admin to receive JWT token."
+      },
+      "response": []
+    },
+    {
+      "name": "Employee Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Employee Bro\",\n  \"email\": \"employee@example.com\",\n  \"password\": \"123456\",\n  \"role\": \"employee\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/register",
+          "host": ["{{base_url}}"],
+          "path": ["api", "auth", "register"]
+        },
+        "description": "Register a new employee user.\n\nBody JSON:\n- name\n- email\n- password\n- role: employee"
+      },
+      "response": []
+    },
+    {
+      "name": "Employee Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"employee@example.com\",\n  \"password\": \"123456\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/login",
+          "host": ["{{base_url}}"],
+          "path": ["api", "auth", "login"]
+        },
+        "description": "Login as employee to receive JWT token."
+      },
+      "response": []
+    }
+  ]
 }
