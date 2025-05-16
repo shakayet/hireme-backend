@@ -1,0 +1,419 @@
+{
+	"info": {
+		"_postman_id": "48910038-e77a-4dca-b801-0ff080090e77",
+		"name": "HireMe API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44835993"
+	},
+	"item": [
+		{
+			"name": "Job Seeker Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Seeker Bro\",\r\n  \"email\": \"seekerr@example.com\",\r\n  \"password\": \"123456\",\r\n  \"role\": \"seeker\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Job Seeker Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"seekerr@example.com\",\r\n  \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Job",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjYxZGFkYzI4NjA0ODNhY2UyOGU0OCIsInJvbGUiOiJlbXBsb3llZSIsImlhdCI6MTc0NzMyODQ2MywiZXhwIjoxNzQ3OTMzMjYzfQ.RuTQ8GXllEMkJC-lXT0UF8YEqXuMEYCWkFELD4dtNME",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Backend Developer\",\r\n  \"company\": \"GizanTech\",\r\n  \"description\": \"Build scalable APIs\",\r\n  \"location\": \"Dhaka\",\r\n  \"salary\": 60000\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/jobs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Job",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/jobs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Apply to Job",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjYwMmU5YzQ2YzU2MTliMTVlMzlmZCIsInJvbGUiOiJzZWVrZXIiLCJpYXQiOjE3NDczMjI1MDIsImV4cCI6MTc0NzkyNzMwMn0.uRqOHjvQdDbeDVUypK6Itug52THU0potna51EtW6968",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "jobId",
+							"value": "6827057c52674a54feb2f916",
+							"type": "text"
+						},
+						{
+							"key": "cv",
+							"type": "file",
+							"src": "/C:/Users/SRABON/Downloads/Shakayet Hossain main resume.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/applications/apply",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"applications",
+						"apply"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "My Application",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjYwMmU5YzQ2YzU2MTliMTVlMzlmZCIsInJvbGUiOiJzZWVrZXIiLCJpYXQiOjE3NDczMjI1MDIsImV4cCI6MTc0NzkyNzMwMn0.uRqOHjvQdDbeDVUypK6Itug52THU0potna51EtW6968",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/seeker/applications",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"seeker",
+						"applications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjYwOWJhNGFjMWQzYmNkZGQzOGYxYiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0NzMzMTI2NywiZXhwIjoxNzQ3OTM2MDY3fQ.yZ3cl1eDgoWQq4v22dS3DJ9erj4x-dav9G6c0GsuMOA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/admin/jobs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"admin",
+						"jobs"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Applications",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjYwOWJhNGFjMWQzYmNkZGQzOGYxYiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0NzMzMTI2NywiZXhwIjoxNzQ3OTM2MDY3fQ.yZ3cl1eDgoWQq4v22dS3DJ9erj4x-dav9G6c0GsuMOA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/admin/applications",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"admin",
+						"applications"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Application Status",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjYxZGFkYzI4NjA0ODNhY2UyOGU0OCIsInJvbGUiOiJlbXBsb3llZSIsImlhdCI6MTc0NzMyODQ2MywiZXhwIjoxNzQ3OTMzMjYzfQ.RuTQ8GXllEMkJC-lXT0UF8YEqXuMEYCWkFELD4dtNME",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"status\": \"rejected\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/recruiter/applications/682706ff52674a54feb2f91c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"recruiter",
+						"applications",
+						"682706ff52674a54feb2f91c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Admin Bro\",\r\n  \"email\": \"adminn@example.com\",\r\n  \"password\": \"123456\",\r\n  \"role\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"adminn@example.com\",\r\n  \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employee Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Employee Bro\",\r\n  \"email\": \"employeeee@example.com\",\r\n  \"password\": \"123456\",\r\n  \"role\": \"employee\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employee Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"employee@example.com\",\r\n  \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
