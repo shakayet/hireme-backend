@@ -6,7 +6,7 @@ const getMyApplications = async (req, res) => {
       .populate('job', 'title company')
       .sort({ createdAt: -1 });
 
-    res.json(apps);
+    res.status(200).json(apps);
   } catch (error) {
     res.status(500).json({ message: 'Failed to fetch applications' });
   }

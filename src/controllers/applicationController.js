@@ -1,36 +1,52 @@
 const Application = require('../models/Application');
 const Invoice = require('../models/Invoice');
+const { applyToJobSchema } = require('../validators/applicationSchema');
+const { ROLES, APPLICATION_STATUS, PAYMENT_STATUS } = require('../constants');
 
+// @desc    Apply to a job (Seeker only)
+// @route   POST /api/applications/apply
+// @access  Private (seeker)
 const applyToJob = async (req, res) => {
   try {
+    // Validate input with Zod
+    applyToJobSchema.parse(req.body);
+
     const { jobId } = req.body;
 
-    // Check if user already applied
+    // Prevent duplicate application
     const exists = await Application.findOne({ job: jobId, user: req.user.id });
     if (exists) {
       return res.status(400).json({ message: 'Already applied to this job' });
     }
 
+    if (!req.file || !req.file.path) {
+      return res.status(400).json({ message: 'CV file is required' });
+    }
+
     const filePath = req.file.path;
 
-    // Save application
-    const app = await Application.create({
+    // Save application using PAYMENT_STATUS constant
+    const application = await Application.create({
       job: jobId,
       user: req.user.id,
       cvUrl: filePath,
-      paymentStatus: 'paid'
+      paymentStatus: PAYMENT_STATUS.PAID // replaced hardcoded 'paid'
+      // You can add status here too if needed, e.g.,
+      // status: APPLICATION_STATUS.PENDING
     });
 
     // Save invoice
     await Invoice.create({
       user: req.user.id,
-      amount: 100,
+      amount: 100, // Fixed payment amount
       job: jobId
     });
 
-    res.status(201).json({ message: 'Application submitted successfully', application: app });
-  } catch (err) {
-    res.status(500).json({ message: 'Error submitting application', error: err.message });
+    res.status(201).json({ message: 'Application submitted successfully', application });
+  } catch (error) {
+    const message = error.errors?.[0]?.message || error.message || 'Error submitting application';
+    res.status(400).json({ message });
   }
 };
+
 module.exports = { applyToJob };

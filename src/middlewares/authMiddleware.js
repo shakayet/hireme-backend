@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const { ROLES } = require('../constants');
 
 const protect = (req, res, next) => {
   const auth = req.headers.authorization;
@@ -17,7 +18,10 @@ const protect = (req, res, next) => {
 };
 
 const authorizeRole = (...roles) => (req, res, next) => {
-  if (!roles.includes(req.user.role)) {
+  // Use constants here instead of raw strings for better safety
+  const allowedRoles = roles.map(role => ROLES[role.toUpperCase()] || role);
+  
+  if (!allowedRoles.includes(req.user.role)) {
     return res.status(403).json({ message: 'Forbidden: Insufficient permission' });
   }
   next();

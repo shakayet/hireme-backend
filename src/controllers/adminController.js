@@ -1,6 +1,8 @@
 const User = require('../models/User');
 const Job = require('../models/Job');
 const Application = require('../models/Application');
+const { registerSchema, loginSchema } = require('../validators/authSchema');
+
 
 const getAllUsers = async (req, res) => {
   const users = await User.find().select('-password');
