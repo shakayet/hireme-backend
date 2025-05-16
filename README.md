@@ -109,6 +109,7 @@ npm run dev
 
 * ✅ Complete Express.js backend
 * ✅ ERD PDF ([Download here](./HireMe_ERD.pdf))
+* ✅ Postman Collection ([Download here](./HireMe_API_Postman_Collection.json))
 * ✅ Postman Collection (see project files)
 * ✅ Clean structured code with roles
 
