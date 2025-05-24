@@ -4,7 +4,7 @@ A role-based backend system built using **Express.js + MongoDB**, supporting job
 
 ---
 
-## 🚀 Tech Stack
+##  Tech Stack use
 
 * **Backend**: Node.js, Express.js
 * **Database**: MongoDB, Mongoose
@@ -15,7 +15,7 @@ A role-based backend system built using **Express.js + MongoDB**, supporting job
 
 ---
 
-## 🔐 Roles & Permissions
+## Roles & Permissions of user
 
 | Role       | Permissions                                                               |
 | ---------- | ------------------------------------------------------------------------- |
@@ -25,7 +25,7 @@ A role-based backend system built using **Express.js + MongoDB**, supporting job
 
 ---
 
-## 📁 Folder Structure
+##  Structure of Folder
 
 ```
 /src
@@ -43,7 +43,7 @@ server.js           # Entry point
 
 ---
 
-## ⚙️ Setup Instructions
+##  How to SetUp
 
 1. Clone the repo
 2. Run `npm install`
@@ -66,24 +66,24 @@ npm run dev
 
 ## 🔗 API Endpoints
 
-### 🔐 Auth
+###  Auth
 
 * `POST /api/auth/register`
 * `POST /api/auth/login`
 
-### 👥 Admin (Protected: `admin`)
+###  Admin (Protected: `admin`)
 
 * `GET /api/admin/users`
 * `GET /api/admin/jobs`
 * `GET /api/admin/applications`
 
-### 💼 Employee (Protected: `employee`)
+### Employee (Protected: `employee`)
 
 * `POST /api/jobs` - Create job
 * `GET /api/recruiter/applications` - View applications to own jobs
 * `PATCH /api/recruiter/applications/:appId` - Accept/Reject application
 
-### 🔍 Job Seeker (Protected: `seeker`)
+### Job Seeker (Protected: `seeker`)
 
 * `GET /api/jobs` - View jobs
 * `POST /api/applications/apply` - Apply with CV + payment
@@ -103,7 +103,7 @@ This ensures data correctness and helpful error messages for invalid inputs.
 
 ---
 
-### 🔧 Constants & Enums
+### Constants & Enums
 
 To improve code readability, maintainability, and avoid hardcoded values, all user roles and application statuses are managed via centralized constants:
 
@@ -119,7 +119,7 @@ These constants are defined in `src/constants/index.js` and used across:
 
 ---
 
-## 📤 File Upload
+## File Upload
 
 * Only `.pdf` and `.docx` allowed
 * Max size: 5MB
@@ -127,7 +127,7 @@ These constants are defined in `src/constants/index.js` and used across:
 
 ---
 
-## 💳 Payment Logic
+## Payment Logic
 
 * Simulated payment
 * Automatically marked as `paid`
@@ -135,7 +135,7 @@ These constants are defined in `src/constants/index.js` and used across:
 
 ---
 
-## 📦 Deliverables
+## Deliverables
 
 * ✅ Complete Express.js backend
 * ✅ ERD PDF ([Download here](./HireMe_ERD.pdf))
@@ -143,8 +143,3 @@ These constants are defined in `src/constants/index.js` and used across:
 * ✅ Postman Collection (see project files)
 * ✅ Clean structured code with roles
 
----
-
-## 📄 License
-
-This project is for educational and demonstration purposes.
