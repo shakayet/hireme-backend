@@ -43,7 +43,7 @@ server.js           # Entry point
 
 ---
 
-##  How to SetUp
+##  Project SetUp
 
 1. Clone the repo
 2. Run `npm install`
